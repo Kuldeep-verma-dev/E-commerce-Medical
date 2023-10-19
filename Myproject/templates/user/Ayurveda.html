@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Ayurvda
+{% endblock %}
+{% block content %}
+<style></style>
+ <div class="fs-2 text-center mb-2"><span style="color:#004d40;"> ------------Ayurveda------------ <b class="text-ocolor"></b></span></div>
+
+<div class="container my-5">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="list-group">
+                {% for x in cats %}
+                <a class="list-group-item list-group-item-action" href="/user/ayurveda?msg={{x.id}}">
+                    {{x.Name}}
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="col-sm-9">
+            <div class="row">
+                {% for a in data %}
+                <div class="col px-0">
+                    <a class="text-decoration-none" href="/user/viewproduct?msg={{a.id}}">
+                        <div class="">
+                            <img class="img-card-top " height="200px" src="/{{a.ppic}}" width="300px"><br>
+                            <small class="fw-bold text-dark text-decoration-none fw-light">{{a.name}}</small>
+                            <div class="fw-bold "><i
+                                    class="fa-solid fa-indian-rupee-sign"></i>{{a.dprice}}
+                               <b class="fw-bold text-decoration-line-through  text-danger fw-light">{{a.pprice}}</b><br>
+                                <span class=" fs-5 text-dark">{{a.pdel}}</span></div>
+                            <span class="text-muted fs-6 "><b>Date </b>: {{a.pdate}}</span>
+                            <br>
+                            <a class="btn btn-lg btn-outline-success" href="/user/viewproduct?msg={{a.id}}">Order
+                                Now</a>
+                            <a class="btn btn-lg btn-outline-success" href="/user/mcart?pid={{a.id}}">Cart <i
+                                    class="fa-solid fa-cart-shopping"></i></a><br>
+
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+view product
+{% endblock %}
+
+{% block content %}
+<style>
+.b4:hover{background:#004d40;
+color:white;
+}
+</style>
+<div class="fs-2 text-center mb-5"><span style="border-bottom:2px solid #1565c0;"> Your Selected <b style="color:#004d40;">Product</b></span></div>
+
+<div class="row mt-2" >
+
+
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+        <div class="row" >
+
+            {% for a in pdata %}
+
+            <div class="col-sm-12">
+                <!--start card-->
+                 <div class="card mb-3 w-100" style="box-shadow:0px 0px 5px 3px #004d40 ;" >
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="/{{a.ppic}}" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{a.pcategory}}</h5>
+        <p class="card-text">{{a.pdes}}</p>
+        <p class="card-text">
+          <i class="fa-solid fa-indian-rupee-sign"></i>
+            <span class="text-danger"><s>{{a.pprice}}</s></span>
+            <span class="text-success">{{a.dprice}}</span>
+        </b>
+        </p>
+            <i class="fa-solid fa-calendar-days"></i><small class="text-muted"> {{a.pdate}} ||
+         {{a.pdel}}
+
+        </small></p>
+        <p class="card-text">
+            <a href="/user/mcart?pid={{a.id}}" class="btn btn-sm b4  border-dark  ">Add to cart <i class="fa-solid fa-cart-shopping"></i></a>
+            <a href="/user/myordr?msg={{a.id}}" class="btn btn-sm  b4  border-dark" > Order Now</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+                <!--end card-->
+            </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+    <div class="col-sm-2"></div>
+
+
+</div>
+{% endblock %}

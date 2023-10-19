@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}
+ Product
+{% endblock %}
+{% block content %}
+{% if not request.session.userid %}
+<script>alert('You have Sign In first...');location.href='/user/signin/'</script>
+{% endif %}
+
+{% endblock %}

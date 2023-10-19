@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% block title %}
+Profile
+{% endblock %}
+{% block content %}
+{% load static %}
+<script src="{% static 'js/jquery-3.6.1.min.js' %}"></script>
+<script>
+$(document).ready(function(){
+$("#btne").click(function(){
+$(".uform").slideToggle(2000)
+ })
+})
+</script>
+{% if  not request.session.userid %}
+<script>alert('You have Sign In first...');location.href='/user/signin/'
+</script>
+{% endif %}
+<div class=" fs-2 text-center mb-5" ><span style="border-bottom:2px solid #1565c0;">My<b style="color:#004d40;"> Profile </b></span></div>
+<div class="row mt-2">
+<div class="col-sm-2"></div>
+<div class="col-sm-8 ">
+<!--start card-->
+  {% for x in mdata %}
+    <div class="card mb-3 w-100 " >
+  <div class="row g-0 " style="box-shadow:0px 0px 5px 3px #1c2332 ;">
+    <div class="col-md-4 p-3">
+      <img src="/{{x.ppic}}" style=" min-height:300px;" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8 ">
+      <div class="card-body">
+        <h5 class="card-title mt-4">{{x.name}}</h5><br>
+        <b>Mobile:</b> {{x.mobile}}<br><br>
+        <b>Email:</b> {{x.email}}<br><br>
+        <b>Password:</b> {{x.passwd}}<br><br>
+        <b>Address:</b> {{x.address}}<br><br>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-2"></div>
+</div>
+  {% endfor %}
+<!--end card-->
+
+</div>
+<!--start form-->
+<style >
+    .txt{
+    height:50px;
+    margin-bottom:15px;
+    }
+    .txta{
+    height:80px;
+    margin-bottom:5px;
+    }
+.bor:hover{
+border-radius:9px;
+background:#bbdefb;
+transition:all ease 4s;
+box-shadow:-2px -2px 5px 5px #1565c0 inset;
+}
+.bor1{
+border-radius:12px;
+background:#bbdefb;
+box-shadow:-2px -2px 5px 4px #1565c0 inset;
+}
+.uform{
+display:none;
+}
+
+</style>
+<div class="row  " >
+    <div class="col-sm-8   mx-auto uform" >
+        <form  method="post" enctype="multipart/form-data" >
+            {% csrf_token %}
+        <div class="row p-3 bor" >
+            <div class="col-sm-12" style="background:white;padding:3%;">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" ><i class="fa fa-user fs-2 icon" aria-hidden="true"></i></span>
+                    </div>
+                    <input name="name"  type="text" class="form-control" placeholder="Name .... " required="" >
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1"><i class="fas fa-phone-volume fs-2 icon"></i></span>
+                    </div>
+                    <input type="number" id="txtcmobile" name="phone" class="form-control" placeholder="Mobile No." required="">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" ><i class="fa-solid fa-key fs-2 icon"></i></span>
+                    </div>
+                    <input type="password"  name="password" class="form-control" placeholder="Password... "  required="">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" ><i class="fa-solid fa-file fs-2 icon"></i></span>
+                    </div>
+                    <input type="file"  name="file" class="form-control"  required>
+                </div>
+                <textarea class="form-control" rows="5" name="msg" placeholder="Enter Your Address..*" required=""></textarea>
+                <div class="input-group ">
+                <input type="submit"  value="REGISTER NOW" class="btn bg-ocolor fw-bold btn-sm rounded-3 form-control mt-3 py-2"  >
+            </div>
+    </div>
+        </div></form>
+
+    </div>
+
+</div>
+<!--end form-->
+{% endblock %}

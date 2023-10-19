@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+        <center><b class="text-center fs-2"> Fill Your Details </b>
+        <table>
+            <form>
+                <tr>
+                    <td>Name</td>
+                    <td>Email</td>
+                </tr>
+                <tr>
+                    <td><input type="text" placeholder="Name" class="form-control" name="name" required></td>
+                    <td><input type="email" placeholder="Email" class="form-control" name="email" required></td>
+                </tr>
+                <tr><td>Address</td></tr>
+                <tr>
+                    <td colspan="2"><input type="text" placeholder="Adrees" class="form-control" name="adrs" required></td>
+                </tr>
+                 <tr><td>Address Home</td></tr>
+                <tr>
+                    <td colspan="2"><input type="text" placeholder="Apartment ,House No.," class="form-control" required name="adrs2"></td>
+                </tr>
+                <tr>
+                    <td>City</td>
+                    <td>State</td>
+                </tr>
+                <tr>
+                    <td><input type="text" placeholder="City" class="form-control" name="city" required></td>
+                    <td><input type="text" placeholder="State" class="form-control" name="state"></td>
+                </tr>
+                 <tr><td>Phone Number</td></tr>
+                <tr>
+                    <td colspan="2"><input type="number" placeholder="Phone number" class="form-control" required name="phn"></td>
+                </tr>
+                <tr><td><input type="submit" class="btn  btn-primary form-control" value="submit" ></td></tr>
+
+            </form>
+        </table>
+        </center>
+
+    </div>
+    <div class="col-sm-1"></div>
+
+</div>
+
+
+
+{% endblock  %}

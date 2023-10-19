@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+HealthNotes
+{% endblock %}
+
+{% block content %}
+<div class="row">
+ {% for y in notes %}
+<div class="col-sm-4"><section class="section-preview">
+
+    <!-- Grid row -->
+    <div class="row mx-1">
+
+      <!-- Grid column -->
+      <div class="col-md-12 mb-4">
+
+        <!-- Card -->
+
+
+        <div class="card card-cascade wider reverse">
+       <div class="card-body card-body-cascade text-center">
+            <!-- Title -->
+      <div class="card-body">
+
+        <h4 class="card-title">{{ y.name }}</h4>
+        <p class="card-text"> {{ y.note }}</p>
+
+      </div>
+    </div>
+  </div>
+
+
+      </div>
+    </div>
+</section></div>
+{% endfor %}
+    <!--start card-->
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% block title %}
+Contact Us
+{% endblock %}
+{% block content %}
+<style>
+    .c1{
+
+
+    padding:30px;
+    color:#004d40;
+    border-radius:10px 50px ;
+    box-shadow:0px 0px 6px 2px #004d40 inset;
+   border:1px solid #004d40;
+    }
+   .b1{
+   box-shadow:0px 0px 6px 2px #004d40 inset;
+   border:1px solid #004d40;
+   padding:30px;
+   color:#004d40;
+   border-radius:50px 10px ;
+   }
+</style>
+<div class="container-fluid newSection pb-3 " style="">
+
+    <div class="fs-2 text-center mb-4"><span style="border-bottom:2px solid #1565c0;"> Contact <b class="" style="color:#004d40;">With Us <i class="fa-sharp fa-solid fa-pen-to-square"></i></b></span><br><p class="text-center" style="font-size:14px;">
+        You may contact us by filling in this form any time you need professional support or have any question.
+    </p></p></div>
+
+    <div class="container bg-white pb-5 pl-5 pr-5 pt-3 ">
+
+        <div class="row ps-5 pe-5">
+            <div class="col-sm-7 c1 mt-4">
+                <h4 class="fw-bold">Send Your Message </h4>
+               {% if m %}
+               <div class="alert alert-info">
+                    your message saved successfully
+               </div>
+               {% endif %}
+                <form  method="post" >
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="mb-0 mt-3">Your Name :</label>
+                            <input type="text" name="name" class="form-control" placeholder="Enter Your Name*" required="" pattern="[A-Za-z .]{3,50}" title="Enter your name (Only valid name acceptable.)">
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="mb-0 mt-3">Your Contact :</label>
+                            <input type="text" name="mob" class="form-control" placeholder="Enter Your Contact Number*" required="" pattern="[6789]{1}[0-9]{9}" title="Enter your valid contact number">
+                        </div>
+                        <div class="col-sm-12">
+                            <label class="mb-0 mt-3">Your Email :</label>
+                            <input type="email" name="email" class="form-control" placeholder="Enter Your Email*" required="" title="Enter your email.">
+                        </div>
+                        <div class="col-sm-12">
+                            <label class="mb-0 mt-3">Your Message :</label>
+                            <textarea class="form-control" rows="4" name="msg" placeholder="Type Your Message Here*" required=""></textarea>
+                        </div>
+                        <div class="col-sm-12 mt-3 mb-2">
+                            <input type="submit" class="btn btn-outline-success btn-lg" name="submit" value="SEND MESSAGE">
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="col-sm-5 mt-4 ps-5 pt-3 b1"   >
+                <div class="col contactLocation">
+                    <h4 class="divHeading pb-2">Contact Info</h4>
+                    <div class="contact">
+                        <i class="fas fa-map-marker-alt text-ocolor fs-4"></i>
+                        <strong>Office Address</strong>
+                        <p>
+                            GOLA,<br>
+                            GOKRAN NATH,<br>
+                            LAKHIMPUR KHERI,<br>
+                            Uttar Pradesh 261151
+                        </p>
+                    </div>
+                    <div class="contact">
+                        <i class="fas fa-phone-alt text-ocolor fs-4"></i>
+                        <strong>Call Us</strong>
+                        <p>
+                            <a href="tel:+91 9305670845" class="text-ocolor">+91 9305670845</a>
+                            <a href="tel:+91 9305670845" class="text-ocolor">+91 9305670845</a>
+                        </p>
+                    </div>
+                    <div class="contact">
+                        <i class="far fa-envelope text-ocolor fs-4"></i>
+                        <strong>Mail Us</strong>
+                        <p>
+                            <a href="mailto:kv319423gmail.com" class="text-ocolor">kv319423@gmail.com</a>
+                            <a href="mailto:kv319423@gmail.com" class="text-ocolor">kv319423@gmail.com</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

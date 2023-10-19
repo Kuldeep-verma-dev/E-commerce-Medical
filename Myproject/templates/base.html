@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>
+        {% block title %}
+
+        {% endblock %}
+    </title>
+<link href="{% static 'css/bootstrap.css' %}"  rel="stylesheet">
+<link href="{% static 'css/all.css' %}"  rel="stylesheet">
+<script src="{% static 'js/bootstrap.js' %}"></script>
+<script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+    <style>
+    body{
+
+    }
+    .bg-bcolor{
+    background:#004d40;
+    }
+  .navbar ul li a{
+  color:#004d40;
+  font-size:17px;
+
+  }
+  .navbar ul li a:hover{
+  background:#004d40;
+  color:white;
+  border-radius:15px;
+  }
+
+.top{min-height:35px;
+line-height:35px;}
+   .top .fa-brands,.top .fa-solid
+{
+color:white;
+padding:1%;
+//transition:all ease 1s;
+}
+.top .fa-brands:hover,.top .fa-solid:hover
+{
+
+color:#01579b;
+transition:all ease 1s;
+transform:scale(1.2);
+}
+
+    .ufooter{
+    min-height:300px;
+    border-bottom:1px solid white;
+
+    }
+    .bfooter{
+    min-height:50px;
+     font-size:22px;
+    text-align:center;
+    line-height:50px;
+    color:white;
+    }
+    .bfooter a{text-decoration:none;}
+
+.search{
+border-radius:19px;
+padding:12px;
+padding-left:90px;
+}
+.search2{
+border-radius:19px;
+border:none;
+}
+.shadow1{
+box-shadow:0px 0px 6px 1px black;
+}
+
+</style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row ">
+        <div class="col-sm-12 ">
+    <div class="row bg-light text-tcolor text-center  ">
+        <div class="col-sm-4 fs-5">
+            <a href="#" ><i class="fa-solid fa-phone text-dark" style="color:#004d40;"></i></a>
+           +91 7007215254   || <a href="https://chat.whatsapp.com/JNP3RS17q672P9mDZGnXWQ" target="_blank" style="color:black;"><i class="fa-brands fa-whatsapp z " style="color:#004d40;"></i></a>   8081735335
+        </div>
+
+        <div class="col-sm-4 fs-5">
+            WELCOME TO GOOD HEALTH
+            <i class="fa-solid fa-cart-plus "></i>
+        </div>
+        <div class="col-sm-4 fs-5">
+            <a href="https://www.facebook.com" target="_blank" style="color:black;" class="m-1"><i class="fa-brands fa-facebook z" style="color:#004d40;"></i></a>
+           <a href="https://www.youtube.com" target="_blank" style="color:black;" class="m-1"> <i class="fa-brands fa-youtube z" style="color:#004d40;"></i></a>
+             <a href="https://www.twitter.com" target="_blank" style="color:black;" class="m-1"><i class="fa-brands fa-twitter z" style="color:#004d40;" ></i></a>
+             <a href="https://www.instagram.com" target="_blank" style="color:black;" class="m-1"><i class="fa-brands fa-instagram z" style="color:#004d40;"></i></a>
+        </div>
+    </div>
+        </div>
+      </div>
+     <hr>
+<div class="row ">
+    <div class="col-sm-12">
+  <div class="row header py-3 text-center bg-light  ">
+      <div class="col-sm-3 text-center fs-2">
+          <b style="color:#004d40;"><span class="text-decoration-underline">GOOD</span> </b>HEALTH<b style="color:#004d40;">
+      <i class="fa-solid fa-notes-medical"></i></b>
+</div>
+      <div class="col-sm-6">
+          <form method="get" action="/search"><div class="input-group" >
+             <input type="text"  class="form-control search" placeholder="Search your product.." name ="qry" id ="qry">
+             <button value="submit" style="background:#004d40; border-radius:0px 17px 17px 0px;"><i class="input-group-text bg-bcolor text-light search2" ><i class="fa-solid fa-magnifying-glass "></i></i></button>
+          </div></form>
+
+
+      </div>
+      <span class="col-sm-2 text-dark ps-3">
+          <a href="/user/showcart/" class="btn btn-outline-dark">
+          cart<i class="fa-solid fa-cart-plus"></i>
+              <b class="badge  " style="background:#004d40;">
+                    {{cart}}
+              </b>
+              </a>
+
+          {% if request.session.userid %}
+          <b>{{request.session.userid}}</b>
+              <img src="/{{request.session.userpic}}" style="max-height:50px;" class="img-thumbnail rounded-2">
+          {% else %}
+
+            <img src="{% static  'images/defaultuser.jpg' %}" style="max-height:50px; " class="img-thumbnail rounded-4">
+          {% endif %}
+          </span>
+      </div>
+        </div>
+  </div>
+  <div class="row shadow1 " style="min-height:55px;">
+<div class="col-sm-3"></div>
+<div class="col-sm-8 ">
+<!--start menu-->
+<nav class="navbar navbar-expand-lg " id="menu">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+        <li class="nav-item">
+          <a class="nav-link " aria-current="page" href="/user/index/"><i class="fa-solid fa-house-chimney" ></i> Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/user/about/"><i class="fa-solid fa-circle-info"></i> Aboutus</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fa-brands fa-product-hunt "></i>  Product
+          </a>
+          <ul class="dropdown-menu  text-bcolor">
+            <li><a class="dropdown-item " href="/user/medicines/">Medicines</a></li>
+            <li><a class="dropdown-item" href="/user/syrups/">Syrups</a></li>
+            <li><a class="dropdown-item" href="/user/herbal&skincare/">Herbal & Skincare Suppliments</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="/user/myorder/"><i class="fa-brands fa-jedi-order"></i> My Orders</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link " href="/user/enquiry/"><i class="fa-solid fa-eye"></i> Enquiry</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="/user/profile/"><i class="fa-solid fa-id-card"></i> My Profile</a>
+        </li>
+          {% if request.session.userid %}
+           <li class="nav-item">
+          <a class="nav-link" href="/user/signout/"><i class="fa-solid fa-lock-open"></i> Sign Out</a>
+        </li>
+          {% else %}
+           <li class="nav-item">
+          <a class="nav-link" href="/user/signin/"><i class="fa-solid fa-lock"></i> Sign IN</a>
+        </li>
+          {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>
+<!--end menu-->
+</div>
+<div class="col-sm-12"></div>
+  </div>
+<!--second menu-->
+    <ul class="nav justify-content-center ne mt-3">
+  <li class="nav-item">
+    <a class="nav-link active ne"  style="color:#004d40;" aria-current="page" href="/user/medicines/">Medicines</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link ne" href="/user/babycare/" style="color:#004d40;">Baby Care</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link ne" href="/user/syrups/" style="color:#004d40;">Syrups</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link ne" href="/user/health&nutrition/" style="color:#004d40;">Health & Nutrition</a>
+  </li>
+ <li class="nav-item">
+    <a class="nav-link ne" href="/user/womencare/" style="color:#004d40;">Women Care</a>
+  </li>
+  <li class="nav-item ne">
+    <a class="nav-link" href="/user/personalcare/" style="color:#004d40;">Personal Care</a>
+  </li>
+  <li class="nav-item ne">
+    <a class="nav-link" href="/user/ayurveda/" style="color:#004d40;">Ayurveda</a>
+  </li>
+  <li class="nav-item ne">
+    <a class="nav-link" href="/user/healthdevices/" style="color:#004d40;">Health Devices</a>
+  </li>
+  <li class="nav-item v">
+    <a class="nav-link" href="/user/herbal&skincare/" style="color:#004d40;">Herbal & Skincare Suppliments</a>
+  </li>
+ <li class="nav-item ne">
+    <a class="nav-link" href="/user/healthnotes/" style="color:#004d40;">Health Notes</a>
+  </li>
+
+</ul>
+    <hr>
+<!--second menu-->
+
+
+  <div class="row product">
+      <div class="col-sm-12 py-3">
+          {% block content %}
+
+
+          {% endblock %}
+      </div>
+  </div>
+
+  <div class="row  ps-5 pe-5 pb-5 pt-2 "  style="background:##bbdefb; color:#004d40;">
+<div class="fs-2 text-center pb-5">OUR <b style="color:#004d40;">SERVICES <i class="fa-brands fa-servicestack"></i></b></div><hr>
+      <div class="col-sm-1 text-left fs-1 ps-5 text-ocolor "> <i class="fa-solid fa-bag-shopping z1"></i></div>
+      <div class="col-sm-2 text-left"><b class="pb-3 ">FREE SHOPPING</b><p>For all order upto Rs.2000</p></div>
+      <div class="col-sm-1 text-left fs-1 ps-5 text-ocolor"><i class="fa-solid fa-clock z1"></i></div>
+      <div class="col-sm-2  text-left"><b class="pb-3">DELIVERY ON TIME</b><p>Fastest Delivery at doorstep</p></div>
+      <div class="col-sm-1 text-left fs-1 ps-5 text-ocolor"><i class="fa-solid fa-lock z1"></i></div>
+      <div class="col-sm-2 text-left "><b class="pb-3">secure payment </b><p>100% secure payment</p></div>
+      <div class="col-sm-1 text-left fs-1 ps-5 text-ocolor"><i class="fa-solid fa-truck-fast z1"></i></div>
+      <div class="col-sm-2 text-left "><b class="pb-3">Fastest Delivery </b><p>Product Deliver on time</p></div> <hr>
+
+  </div>
+
+  <div class="row ufooter bg-bcolor border border border-bottom border-1">
+      <!-- Footer -->
+<footer class="text-center text-lg-start bg-bcolor  " style="color:white;">
+  <!-- Section: Social media -->
+  <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+    <!-- Left -->
+    <div class="me-5 d-none d-lg-block">
+      <span>Get connected with us on social networks:</span>
+    </div>
+    <!-- Left -->
+
+    <!-- Right -->
+    <div>
+      <a href="https://www.facebook.com" target="_blank" class="me-4 text-reset">
+        <i class="fa-brands fa-facebook z fs-4"></i>
+      </a>
+      <a href="https://www.twitter.com" target="_blank" class="me-4 text-reset">
+        <i class="fa-brands fa-twitter z fs-4"></i>
+      </a>
+      <a href="https://www.google.com" target="_blank" class="me-4 text-reset">
+        <i class="fa-brands fa-google z fs-4"></i>
+      </a>
+      <a href="https://www.facebook.com" target="_blank" class="me-4 text-reset">
+        <i class="fa-brands fa-instagram z fs-4"></i>
+      </a>
+      <a href="https://www.linkedin.com" target="_blank" class="me-4 text-reset">
+        <i class="fa-brands fa-linkedin z fs-4"></i>
+      </a>
+      <a href="/user//index/" class="me-4 text-reset">
+        <i class="fa-brands fa-github z fs-4"></i>
+      </a>
+    </div>
+    <!-- Right -->
+  </section>
+  <!-- Section: Social media -->
+
+  <!-- Section: Links  -->
+  <section class="">
+    <div class="container text-center text-md-start mt-5">
+      <!-- Grid row -->
+      <div class="row mt-3">
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <!-- Content -->
+          <h6 class="text-uppercase fw-bold mb-4">
+              <i class="fas fa-gem me-3"></i>GOOD <b>HEALTH</b>
+          </h6>
+          <p>
+            Here you can purchase the best products on low  cast. Here you can buy every Medicine for low price. So
+               your must welcome here.
+
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Products
+          </h6>
+          <p>
+            <a href="/user/medicines/" class="text-reset " style="text-decoration:none;">MEDICINES</a>
+          </p>
+          <p>
+            <a href="/user/babycare/" class="text-reset " style="text-decoration:none;">BABYCARE</a>
+          </p>
+          <p>
+            <a href="/user/womencare/" class="text-reset " style="text-decoration:none;">WOMENCARE</a>
+          </p>
+          <p>
+            <a href="/user/index/" class="text-reset " style="text-decoration:none;">OTHERS</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Useful links
+          </h6>
+          <p>
+            <a href="/user/ayurveda/" class="text-reset" style="text-decoration:none;color:white;">Best Product</a>
+          </p>
+          <p>
+            <a href="/user/womencare/" class="text-reset" style="text-decoration:none;color:white;">Offers</a>
+          </p>
+          <p>
+            <a href="/user/myorder/" class="text-reset" style="text-decoration:none;color:white;">Orders</a>
+          </p>
+          <p>
+            <a href="/user/index/" class="text-reset" style="text-decoration:none;color:white;">Help</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4" >
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+          <p><i class="fas fa-home me-3"></i>GOLA GOKRAN NATH KHERI,</p>
+          <p><a href="https://www.gmail.com" target="_blank" style="text-decoration:none;color:white;">
+            <i class="fas fa-envelope me-3 z"></i>
+            kv319423@gmail.com</a>
+          </p>
+            <a href="#" style="text-decoration:none;color:white;"><p><i class="fas fa-phone me-3 z"></i> +91, 9999999999</p></a>
+          <a href="#" style="text-decoration:none;color:white;"><p><i class="fas fa-print me-3 z"></i> +91, 9305670845</p></a>
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+    </div>
+  </section>
+  <!-- Section: Links  -->
+
+  <!-- Copyright -->
+  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+   Developed By :<a href="#" style="text-decoration:none;color:white;" class="text-ocolor z">KULDEEP VERMA</a>  ||  © 2023 Copyright:
+     <a class="text-ocolor z" style="text-decoration:none;color:white;" href="#">GOVERNMENT POLYTECHNIC MOHHAMADI KHERI</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
+
+  </div>
+</div>
+
+</body>
+</html>

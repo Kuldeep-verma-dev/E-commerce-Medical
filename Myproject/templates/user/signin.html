@@ -1,0 +1,65 @@
+{% load static %}
+<title>Sign in</title>
+<link href="{% static 'css/bootstrap.css' %}"  rel="stylesheet">
+<link href="{% static 'css/all.css' %}"  rel="stylesheet">
+<script src="{% static 'js/bootstrap.js' %}"></script>
+<script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+{% block content %}
+<style>
+    .divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #eee;
+}
+.st1{
+border:2px solid #004d40;
+padding:10px;
+border-radius:10px;
+box-shadow:0px 0px 6px 2px #004d40 inset;
+}
+i2:hover{
+background:#004d40;
+color:white;
+}
+</style>
+<div class="fs-2 text-center"><b style="color:#004d40;" class="text-decoration-underline">GOOD</b>Health<b style="color:#004d40;">
+      <i class="fa-solid fa-notes-medical"></i></b>
+</div>
+
+<div class="row m-5  a1" style="background:white">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4 st1">
+      <span class="fs-2" style="color:#004d40;">Sign in</span>
+      <form method="post" class="pt-3">
+          {% csrf_token %}
+          <!-- Email input -->
+          <div class="form-outline mb-4">
+            <input type="email" id="form1Example13" name="email" placeholder="Enter your Email" class="form-control form-control" />
+            <label class="form-label" for="form1Example13">Email address</label>
+          </div>
+          <!-- Password input -->
+          <div class="form-outline mb-4">
+            <input type="password" name="passwd"  id="form1Example23" placeholder="Enter your Password" class="form-control form-control" />
+            <label class="form-label" for="form1Example23">Password</label>
+          </div>
+
+          <div class="d-flex justify-content-around align-items-center mb-4">
+            <!-- Checkbox -->
+          </div>
+          <!-- Submit button -->
+          <button type="submit" class= "btn btn-primary  from-control w-100 " style="background:#004d40;">Sign in</button>
+          <div class="divider d-flex align-items-center my-4">
+          </div>
+<a href="/user/enquiry/" class="text-decoration-none">Need help?</a>
+
+        </form></div>
+    <center style="color:#808080;" class="py-1">----------New to GOODHealth?-----------</center>
+    <center><a class="btn  btn-sm" style="width:465px; color:#004d40; border:2px solid #004d40;" href="/user/signup/"><b>Create your Goodhealth account</b></a></center>
+  <div class="col-sm-4"></div>
+</div>
+
+
+<!---login  end-->
+{% endblock %}
