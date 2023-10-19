@@ -2,4 +2,4 @@
 
 This is my medicine related website where we can buy medicine and other product.`<br>`
 
-Html, css ,  javascript ,python with django
+Html , css ,  javascript , Bootstrap ,Python with Django
